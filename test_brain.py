@@ -1,8 +1,7 @@
-from core.agent import MAXAgent
+from core.brain import MAXBrain
 
 
-max_agent = MAXAgent()
-
+brain = MAXBrain()
 
 test_messages = [
     "Hello MAX",
@@ -12,12 +11,8 @@ test_messages = [
     "Remember that my project is called MAX"
 ]
 
-
 for message in test_messages:
+    result = brain.understand(message)
 
-    print("\n" + "=" * 50)
-    print(f"USER: {message}")
-
-    response = max_agent.chat(message)
-
-    print(f"MAX: {response}")
+    print(f"\nUser: {message}")
+    print(f"Intent: {result['intent']}")
